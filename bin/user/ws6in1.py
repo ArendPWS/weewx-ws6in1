@@ -570,11 +570,8 @@ class ws6in1(weewx.drivers.AbstractDevice):
         try:
             date_time = ws_date + ' ' + ws_time + ':00'			
             pattern = '%Y-%m-%d %H:%M:%S'			
-<<<<<<< HEAD
+
             my_epoch = int(time.mktime(time.strptime(date_time, pattern)))			
-=======
-            my_epoch = int(time.mktime(time.strptime(date_time, pattern)))
->>>>>>> 4539bf852a7169ee6ef9019ca8be1e7d6b6fc2ee
 
         except ValueError as my_error:
             log.error("get_archive_epoch::ValueError error: %s  date: %s  time: %s",
@@ -686,16 +683,15 @@ class ws6in1(weewx.drivers.AbstractDevice):
 
             out_humid = self.get_int()
 
-<<<<<<< HEAD
+
             # old rain1
             rain_dayRain = self.get_float()
 
             # old rain2 which was previously mapped to rainHour
             rain_rainRate = self.get_float()
-=======
+
             rain_day = self.get_float()
             rain_rate = self.get_float()
->>>>>>> 4539bf852a7169ee6ef9019ca8be1e7d6b6fc2ee
 
             wind_speed = self.get_float()
 
@@ -716,14 +712,13 @@ class ws6in1(weewx.drivers.AbstractDevice):
             ## Needs to be in a packet if you prefer the console value
             heatindex = self.get_float()
 
-<<<<<<< HEAD
+
             ## Support for extra sensors seems to work allright
             ## I have one extra on channel 1 working fine
-=======
+
             heatindex = self.get_float()
 
             ## get the 7 temp/humidity sensor data
->>>>>>> 4539bf852a7169ee6ef9019ca8be1e7d6b6fc2ee
             extra_temp1 = self.get_float()
             extra_humid1 = self.get_int()
             extra_temp2 = self.get_float()
@@ -770,18 +765,15 @@ class ws6in1(weewx.drivers.AbstractDevice):
             packet['inHumidity'] = in_humid
             packet['outTemp'] = out_temp
             packet['outHumidity'] = out_humid
-<<<<<<< HEAD
             packet['dayRain'] = rain_dayRain * 0.1 # convert to cm
             ## rainRate now availabale as an alternative to the WeeWX calculation
             ## (make sure WeeWX config rainRate = prefer_hardware if you want to use this)            
             ## was previously mapped to hourRain
             packet['rainRate'] = rain_rainRate * 0.1 # convert to cm            
             packet['rain'] = self.rain_delta(rain_dayRain) * 0.1 # convert to cm
-=======
             packet['dayRain'] = rain_day * 0.1 # convert to cm
             packet['rainRate'] = rain_rate * 0.1 # convert to cm   
             packet['rain'] = self.rain_delta(rain_day) * 0.1 # convert to cm
->>>>>>> 4539bf852a7169ee6ef9019ca8be1e7d6b6fc2ee
             packet['windSpeed'] = wind_speed
             packet['windGust'] = wind_gust
             packet['windDir'] = wind_dir_deg
@@ -791,11 +783,9 @@ class ws6in1(weewx.drivers.AbstractDevice):
             packet['barometer'] = barom_rel
             packet['UV'] = uv_index
             packet['dewpoint'] = dewpoint
-<<<<<<< HEAD
+
             ## heatindex now availabale as an alternative to the WeeWX calculation
             ## (make sure WeeWX config heatindex = prefer_hardware if you want to use this)
-=======
->>>>>>> 4539bf852a7169ee6ef9019ca8be1e7d6b6fc2ee
             packet['heatindex'] = heatindex
             packet['extraHumid1'] = extra_humid1
             packet['extraHumid2'] = extra_humid2
